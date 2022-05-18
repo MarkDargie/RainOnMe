@@ -19,8 +19,8 @@ TagManager:
   - Enemy
   - Obstacles
   - EnemyHitbox
-  - 
-  - 
+  - Floor
+  - Walls
   - 
   - 
   - 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EnemyCombatManager : MonoBehaviour
+public class EnemyManager : MonoBehaviour
 {
     // Stats
     public float maxHealth = 100f;
@@ -83,5 +83,13 @@ public class EnemyCombatManager : MonoBehaviour
         this.enabled = false;
 
         //this.gameObject.SetActive(false);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "Player")
+        {
+            Debug.Log("Player Hit");
+        }
     }
 }

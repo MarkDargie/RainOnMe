@@ -103,7 +103,7 @@ public class PlayerCombat : MonoBehaviour
         Collider2D[] targetsHit = Physics2D.OverlapCircleAll(basicAttackPoint.position, basicAttackRange, enemyLayers);
         foreach (Collider2D target in targetsHit)
         {
-            target.GetComponent<EnemyCombatManager>().TakeDamage(basicAttackDamage);
+            target.GetComponent<EnemyManager>().TakeDamage(basicAttackDamage);
         }
         //isAttacking = false;
     }
