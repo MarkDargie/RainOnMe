@@ -8,11 +8,18 @@ public class PlayerMovement : MonoBehaviour
 
     // movement
     public CharacterController2D characterController;
+    public Rigidbody2D rb;
+    private PlayerCombat playerCombat;
+    public Animator animator;
+
+    [Header("Movement")]
     private float horizontalMove = 0f;
     public float movementSpeed = 40f;
     private float playerMovementSpeedModifier;
 
+
     // jumping
+    [Header("Jump Mechanics")]
     public float jumpVelocity;
     private int jumpCount = 0;
     public int extraJumps = 1;
@@ -26,9 +33,9 @@ public class PlayerMovement : MonoBehaviour
 
     // ??
     bool movementJump = false;
-    bool movementCrouch = false;
 
     // dash mechanics
+    [Header("Dash Mechanics")]
     public float dashDistance = 15f;
     public float dashDuration = 0.4f;
     public float dashCooldown = 1f;
@@ -38,12 +45,9 @@ public class PlayerMovement : MonoBehaviour
     KeyCode lastKeyCode;
     public float dashAnimationDelay;
 
-    public Rigidbody2D rb;
-    private PlayerCombat playerCombat;
+    [Space]
     private bool isAttacking;
 
-    // Animations
-    public Animator animator;
 
 
     private void Awake()
@@ -90,6 +94,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && !isDashing)
         {
+            Debug.Log("Player Jump");
             Jump();
         }
         // always check after all physics 
@@ -104,6 +109,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Jump()
     {
+        Debug.Log("Jumping: " + isGrounded + "Jump Count: " + jumpCount);
         if(isGrounded || jumpCount < extraJumps)
         {
             movementJump = true;

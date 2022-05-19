@@ -62,7 +62,6 @@ public class EnemyManager : MonoBehaviour
 
     private void Death()
     {
-        //Debug.Log("Enemy Died");
         canTakeDamage = false;
         animator.SetBool("Death", true);
         StartCoroutine(DeathAnimationDelay());
@@ -89,7 +88,7 @@ public class EnemyManager : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            Debug.Log("Player Hit");
+           // Debug.Log("Player Hit");
         }
     }
 }
